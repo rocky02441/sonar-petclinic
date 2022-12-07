@@ -27,4 +27,4 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - cp /home/gitlab-runner/builds/A-TsRgKM/0/jaiswaladi246/petclinic/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps/
+    - cp /home/gitlab-runner/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/apache-tomcat-9.0.65/webapps/
