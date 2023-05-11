@@ -2,7 +2,7 @@ stages:
   - compile
   - sonarqube-analysis
   - build
-  #- deploy
+  - deploy
 
 compile-job:      
   stage: compile
@@ -25,3 +25,13 @@ build-job:
   script:
     - echo "Maven Build"
     - mvn clean package
+
+deploy-job:      
+  stage: deploy
+  tags:
+    - "self-hosted"  
+  script:
+    - echo "Deploying application..."
+    - docker build -t pet1 -t adijaiswal/pet1:latest .
+    - echo $DOCKER_PASS | docker login -u adijaiswal --password-stdin
+    - docker push adijaiswal/pet1:latest
