@@ -1,7 +1,7 @@
 stages:          
   - compile
-  #- sonarqube-analysis
-  #- build
+  - sonarqube-analysis
+  - build
   #- deploy
 
 compile-job:      
