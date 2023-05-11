@@ -29,5 +29,7 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - mvn clean compile jib:build
+    - docker build -t pet1 -t adijaiswal/pet1:latest .
+    - echo $DOCKER_PASS | docker login -u adijaiswal --password-stdin
+    - docker push adijaiswal/pet1:latest
 
