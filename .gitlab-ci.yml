@@ -6,6 +6,8 @@ stages:          # List of stages for jobs, and their order of execution
 
 compile-job:       # This job runs in the build stage, which runs first.
   stage: compile
+  tags:
+    - "self-hosted"
   script:
     - echo "Compiling the code..."
     - mvn clean compile
