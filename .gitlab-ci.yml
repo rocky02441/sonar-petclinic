@@ -32,6 +32,4 @@ deploy-job:
     - "self-hosted"  
   script:
     - echo "Deploying application..."
-    - docker build -t pet1 -t adijaiswal/pet1:latest .
-    - echo $DOCKER_PASS | docker login -u adijaiswal --password-stdin
-    - docker push adijaiswal/pet1:latest
+    - docker run -p 8080:8080 springcommunity/spring-framework-petclinic
