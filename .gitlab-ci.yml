@@ -1,0 +1,13 @@
+stages:          
+  - compile
+  #- sonarqube-analysis
+  #- build
+  #- deploy
+
+compile-job:      
+  stage: compile
+  tags:
+    - "self-hosted"
+  script:
+    - echo "Compiling the code..."
+    - mvn clean compile
