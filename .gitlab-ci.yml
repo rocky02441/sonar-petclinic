@@ -29,5 +29,5 @@ deploy-job:      # This job runs in the deploy stage.
   environment: production
   script:
     - echo "Deploying application..."
-    - mvn jib:build
+    - mvn clean compile jib:build
 
