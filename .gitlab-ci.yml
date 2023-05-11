@@ -2,7 +2,7 @@ stages:          # List of stages for jobs, and their order of execution
   - compile
   - sonarqube-analysis
   - build
-  #- deploy
+  - deploy
 
 compile-job:       # This job runs in the build stage, which runs first.
   stage: compile
@@ -24,10 +24,10 @@ build-job:   # This job also runs in the test stage.
     - echo "Maven Build"
     - mvn clean install
 
-#deploy-job:      # This job runs in the deploy stage.
-  #stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  #environment: production
-  #script:
-    #- echo "Deploying application..."
-    #- cp /home/gitlab-runner/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/apache-tomcat-9.0.65/webapps/
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  environment: production
+  script:
+    - echo "Deploying application..."
+    - mvn jib:build
 
