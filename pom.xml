@@ -133,7 +133,7 @@
             <artifactId>taglibs-standard-jstlel</artifactId>
             <version>${taglibs-standard.version}</version>
         </dependency>
-        <!--  JSon -->
+        
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -389,7 +389,10 @@
             </plugin>
 
             <plugin>
-                <groupId>org.jacoco</groupId>
+                <groupId>org.jacoco</groupId>sh "mvn clean package"
+sh ''' mvn sonar:sonar -Dsonar.url=http://0.0.0.0:9000/ -Dsonar.login=squ_e10e6fe80fcdd098628e940825211a2b22150e4e -Dsonar.projectName=Petclinic \
+-Dsonar.java.binaries=. \
+-Dsonar.projectKey=Petclinic'''
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin}</version>
                 <executions>
