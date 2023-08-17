@@ -14,7 +14,7 @@
     <properties>
     
         <!-- JaCoCo Properties -->
-        <jacoco.version>0.8.6</jacoco.version
+        <jacoco.version>0.8.6</jacoco.version>
         <sonar.java.covreagePlugin>jacoco</sonar.java.covreagePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
